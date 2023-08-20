@@ -1,6 +1,6 @@
 # Digital-clock
 
--> show the correct time
+-> Show the correct time
 
 <h2>Tech Stack Used</h2>
 
