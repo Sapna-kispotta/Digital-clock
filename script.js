@@ -1,22 +1,28 @@
-const time = document.getElementById("time");
-const timeformat = document.getElementById("timeformat");
-
-document.addEventListener('DOMContentLoaded', ()=>{
-    setInterval(showTime, 1000);
-});
-
-const showTime =()=>{
-    let date =new Date();
-    let hr =date.getHours();
-    let mins =date.getMinutes();
-    let secs =date.getSeconds();
-
-    hr = hr<10 ? 0$(hr) : hr;
-    mins = mins<10 ? 0$(mins) : mins;
-    secs = secs<10 ? 0$(secs) : secs;
-
-    time.innerHTML= $(hr) : $(mins) : $(secs);
-
-    timeformat.innerHTML =hr>12 ? "PM" :"AM";
-   // console.log("hours" + hr + "mins" +min +"secs" +secs);
+// Function to update the digital clock
+function updateClock() {
+    var currentTime = new Date(); // Get current time
+    var hr = currentTime.getHours();
+    var min = currentTime.getMinutes();
+    var sec = currentTime.getSeconds();
+    
+    // Format hours, minutes, and seconds to ensure two digits
+    hr = (hr < 10 ? '0' : '') + hr;
+    min = (min < 10 ? '0' : '') + min;
+    sec = (sec < 10 ? '0' : '') + sec;
+    
+    var time = document.getElementById('time');
+    var timeformat = document.getElementById('timeformate');
+    
+    // Set the innerHTML of the elements to display the formatted time
+    time.innerHTML = hr + ':' + min + ':' + sec;
+    
+    // Determine whether it's AM or PM
+    var ampm = hr >= 12 ? 'PM' : 'AM';
+    timeformat.innerHTML = ampm;
 }
+
+// Call the updateClock function once to initialize the clock
+updateClock();
+
+// Set interval to update the clock every second
+setInterval(updateClock, 1000);
